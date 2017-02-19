@@ -9,20 +9,36 @@
     'name': 'constant.character.128t'
     'patterns': [
       {
-        'match': '^\\s*(\\S+)\\s+(\\S+)\\s*$'
-        'captures':
-          '1':
-            'name': 'keyword.control.128t'
-          '2':
-            'name': 'entity.name.function.128t'
+        'include': '#128t-config-tenant'
+      }
+      {
+        'include': '#128t-config-service'
+      }
+      {
+        'include': '#128t-config-ipv4prefix'
+      }
+      {
+        'include': '#128t-config-ipv4'
+      }
+      {
+        'include': '#128t-config-line'
+      }
+      {
+        'include': '#128t-config-quoted-string'
+      }
+      {
+        'include': '#128t-config-single-word-line'
+      }
+      {
+        'include': '#128t-config-multi-word-line'
       }
     ]
   }
   {
-    'include': '#ipv4'
+    'include': '#ipv4prefix'
   }
   {
-    'include': '#ipv4prefix'
+    'include': '#ipv4'
   }
 ]
 'repository':
@@ -66,3 +82,90 @@
       '7':
         'name': 'constant.numeric.128t'
     'name': 'meta.function.128t.ipv4'
+  '128t-config-line':
+    'match': '^\\s*(\\S+)\\s+(\\S+)\\s*$'
+    'captures':
+      '1':
+        'name': 'keyword.control.128t'
+      '2':
+        'name': 'entity.name.function.128t'
+  '128t-config-ipv4':
+    'match': '^\\s*(\\S+)\\s+(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)\\s*$'
+    'captures':
+      '1':
+        'name': 'keyword.control.128t'
+      '2':
+        'name': 'constant.numeric.128t'
+      '3':
+        'name': 'keyword.control.128t'
+      '4':
+        'name': 'constant.numeric.128t'
+      '5':
+        'name': 'keyword.control.128t'
+      '6':
+        'name': 'constant.numeric.128t'
+      '7':
+        'name': 'keyword.control.128t'
+      '8':
+        'name': 'constant.numeric.128t'
+    'name': 'meta.function.128t.ipv4'
+  '128t-config-ipv4prefix':
+    'match': '^\\s*(\\S+)\\s+(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\/)(3[0-2]|[1-2]?\\d)\\s*$'
+    'captures':
+      '1':
+        'name': 'keyword.control.128t'
+      '2':
+        'name': 'constant.numeric.128t'
+      '3':
+        'name': 'keyword.control.128t'
+      '4':
+        'name': 'constant.numeric.128t'
+      '5':
+        'name': 'keyword.control.128t'
+      '6':
+        'name': 'constant.numeric.128t'
+      '7':
+        'name': 'keyword.control.128t'
+      '8':
+        'name': 'constant.numeric.128t'
+      '9':
+        'name': 'keyword.control.128t'
+      '10':
+        'name': 'constant.numeric.128t'
+    'name': 'meta.function.128t.ipv4prefix'
+  '128t-config-quoted-string':
+    'begin': '^\\s*(\\S+)\\s+"'
+    'beginCaptures':
+      '0':
+        'name': 'keyword.control.128t'
+      '1':
+        'name': 'keyword.control.128t'
+    'end': '\"'
+    'endCaptures':
+      '0':
+        'name': 'keyword.control.128t'
+    'name': 'comment.line.128t'
+  '128t-config-single-word-line':
+    'match': '^\\s+(\\S+)\\s*$'
+    'name' : 'keyword.control.128t'
+  '128t-config-multi-word-line':
+    'match': '^\\s+(\\S+)\\s*(.*)$'
+    'captures':
+      '1':
+        'name': 'keyword.control.128t'
+      '2':
+        'name': 'entity.name.function.128t'
+  '128t-config-tenant':
+    'match': '^\\s*(tenant)\\s+(\\S+)\\s*$'
+    'captures':
+      '1':
+        'name': 'string.quoted.single.128t'
+      '2':
+        'name': 'variable.parameter.128t'
+  '128t-config-service':
+    'match': '^\\s*(service)\\s+(\\S+)\\s*$'
+    'captures':
+      '1':
+        'name': 'string.quoted.single.128t'
+      '2':
+        'name': 'variable.parameter.128t'
