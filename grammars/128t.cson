@@ -1,0 +1,68 @@
+'scopeName': 'source.128t'
+'name': '128t'
+'fileTypes': ['128t']
+'patterns': [
+  {
+    'comment': 'Config'
+    'begin': '^config'
+    'end': '(?<=^exit)'
+    'name': 'constant.character.128t'
+    'patterns': [
+      {
+        'match': '^\\s*(\\S+)\\s+(\\S+)\\s*$'
+        'captures':
+          '1':
+            'name': 'keyword.control.128t'
+          '2':
+            'name': 'entity.name.function.128t'
+      }
+    ]
+  }
+  {
+    'include': '#ipv4'
+  }
+  {
+    'include': '#ipv4prefix'
+  }
+]
+'repository':
+  'ipv4prefix':
+    'match': '\\b(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\/)(3[0-2]|[1-2]?\\d)\\b'
+    'captures':
+      '1':
+        'name': 'constant.numeric.128t'
+      '2':
+        'name': 'keyword.control.128t'
+      '3':
+        'name': 'constant.numeric.128t'
+      '4':
+        'name': 'keyword.control.128t'
+      '5':
+        'name': 'constant.numeric.128t'
+      '6':
+        'name': 'keyword.control.128t'
+      '7':
+        'name': 'constant.numeric.128t'
+      '8':
+        'name': 'keyword.control.128t'
+      '9':
+        'name': 'constant.numeric.128t'
+    'name': 'meta.function.128t.ipv4prefix'
+  'ipv4':
+    'match': '\\b(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.)(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)\\b'
+    'captures':
+      '1':
+        'name': 'constant.numeric.128t'
+      '2':
+        'name': 'keyword.control.128t'
+      '3':
+        'name': 'constant.numeric.128t'
+      '4':
+        'name': 'keyword.control.128t'
+      '5':
+        'name': 'constant.numeric.128t'
+      '6':
+        'name': 'keyword.control.128t'
+      '7':
+        'name': 'constant.numeric.128t'
+    'name': 'meta.function.128t.ipv4'

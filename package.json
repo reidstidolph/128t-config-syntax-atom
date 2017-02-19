@@ -1,0 +1,17 @@
+{
+  "name": "language-128t",
+  "version": "0.0.1",
+  "description": "128T config syntax support in Atom",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reidstidolph/128t-config-syntax-atom"
+  },
+  "bugs": {
+    "url": "https://github.com/reidstidolph/128t-config-syntax-atom/issues"
+  },
+  "license": "MIT"
+}
